@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayank Kumar — Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#141010;--bg2:#1a1515;--bg3:#211c1c;--surface:#251f1f;
+  --border:#2e2727;--orange:#e8562a;--orange-dim:#c44820;
+  --text:#f0ebe6;--text-mid:#9e9490;--text-dim:#5a5250;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(20,16,16,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-brand{font-family:var(--serif);font-size:1.15rem;font-weight:700}
+.nav-brand span{color:var(--orange)}
+.nav-brand sub{font-family:var(--sans);font-size:0.62rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-mid);margin-left:0.6rem;vertical-align:middle}
+.nav-links{display:flex;align-items:center;gap:1.75rem}
+.nav-links a{font-size:0.82rem;font-weight:500;color:var(--text-mid);transition:color 0.15s}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-cta{background:var(--orange);color:#fff!important;padding:0.42rem 1.2rem;border-radius:99px;font-size:0.82rem!important;transition:background 0.15s!important}
+.nav-cta:hover{background:var(--orange-dim)!important}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 2.5rem 0;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-10%;right:-5%;width:55%;height:75%;background:radial-gradient(ellipse at 60% 30%,rgba(180,80,30,0.35) 0%,rgba(100,40,10,0.18) 45%,transparent 72%);pointer-events:none}
+.hero-available{display:flex;align-items:center;gap:0.55rem;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-mid);margin-bottom:1.6rem}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero-name{font-family:var(--serif);font-size:clamp(4rem,10vw,8.5rem);line-height:0.95;font-weight:700;letter-spacing:-0.03em;margin-bottom:2rem}
+.hero-name .first{color:var(--text)}
+.hero-name .last{color:#6b5f5a;font-style:italic;font-weight:400}
+.hero-sub-row{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.hero-tagline{font-size:clamp(0.95rem,1.6vw,1.1rem);color:var(--text-mid);max-width:460px;line-height:1.65}
+.hero-tagline strong{color:var(--text);font-weight:500}
+.hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:0.4rem;background:var(--orange);color:#fff;padding:0.65rem 1.4rem;border-radius:99px;font-size:0.85rem;font-weight:500;transition:background 0.15s}
+.btn-primary:hover{background:var(--orange-dim)}
+.btn-ghost{display:inline-flex;align-items:center;border:1px solid var(--border);color:var(--text);padding:0.65rem 1.4rem;border-radius:99px;font-size:0.85rem;font-weight:500;transition:border-color 0.15s}
+.btn-ghost:hover{border-color:var(--text-mid)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);margin:0 -2.5rem}
+.stat-cell{padding:1.75rem 2.5rem;border-right:1px solid var(--border)}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-family:var(--serif);font-size:2.6rem;font-weight:700;color:var(--orange);line-height:1}
+.stat-lbl{font-size:0.78rem;color:var(--text-mid);margin-top:0.35rem}
+
+/* MARQUEE */
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:0.9rem 0;background:var(--bg2)}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 35s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{font-size:0.82rem;color:var(--text-mid);padding:0 1.5rem;flex-shrink:0}
+.marquee-star{color:var(--orange);padding:0 0.25rem;flex-shrink:0;font-size:0.7rem;line-height:2}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{padding:5rem 2.5rem;max-width:1100px;margin:0 auto}
+.section-eyebrow{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.6rem}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;margin-bottom:0.5rem}
+.section-desc{font-size:0.9rem;color:var(--text-mid);max-width:480px;line-height:1.65}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
+
+/* ── CASE CARDS ── */
+.cases-list{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.case-card{background:var(--bg2)}
+
+/* collapsed head */
+.case-card-head{
+  display:grid;grid-template-columns:1fr auto;
+  align-items:start;gap:1rem;padding:2rem 2.2rem;
+  cursor:pointer;transition:background 0.15s;
+}
+.case-card-head:hover{background:var(--bg3)}
+.card-tags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.75rem}
+.card-tag{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;background:rgba(232,86,42,0.12);color:var(--orange)}
+.card-tag.real{background:rgba(50,160,80,0.1);color:#5dba7a}
+.card-title-main{font-family:var(--serif);font-size:1.35rem;font-weight:700;line-height:1.25;margin-bottom:0.6rem;color:var(--text)}
+.card-problem-text{font-size:0.86rem;color:var(--text-mid);line-height:1.6;max-width:640px;margin-bottom:1rem}
+.card-metrics-row{display:flex;gap:1.25rem;flex-wrap:wrap}
+.card-metric-chip{font-size:0.78rem;color:var(--text-mid);border-left:2px solid var(--orange);padding-left:0.6rem}
+.card-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.6rem;flex-shrink:0}
+.expand-hint{font-size:0.72rem;color:var(--text-dim);white-space:nowrap}
+.btn-view-full-head{
+  display:inline-flex;align-items:center;gap:0.3rem;
+  font-size:0.75rem;color:var(--orange);
+  border:1px solid rgba(232,86,42,0.35);padding:0.3rem 0.8rem;border-radius:2px;
+  transition:background 0.15s,border-color 0.15s;white-space:nowrap;
+}
+.btn-view-full-head:hover{background:rgba(232,86,42,0.1);border-color:var(--orange)}
+
+/* expanded body */
+.card-body{display:none;border-top:1px solid var(--border);background:var(--bg2)}
+.card-body.open{display:block}
+
+/* 5-section blocks */
+.case-sections{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:0}
+.case-section{background:var(--surface)}
+.case-section-head{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.5rem;border-bottom:1px solid var(--border);
+  background:var(--bg3);
+}
+.case-section-num{
+  font-family:var(--serif);font-size:1.1rem;font-weight:700;
+  color:var(--orange);min-width:28px;
+}
+.case-section-label{
+  font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--text-dim);font-weight:500;
+}
+.case-section-body{padding:1.25rem 1.5rem;font-size:0.86rem;color:var(--text-mid);line-height:1.7}
+.case-section-body ul{list-style:none;margin-top:0.25rem}
+.case-section-body li{padding:0.3rem 0 0.3rem 1rem;position:relative;border-bottom:1px solid var(--border)}
+.case-section-body li:last-child{border-bottom:none}
+.case-section-body li::before{content:'▸';position:absolute;left:0;color:var(--orange);font-size:0.7rem;top:0.4rem}
+
+/* outcomes strip */
+.outcome-strip{display:flex;gap:0;background:var(--border)}
+.outcome-cell{flex:1;background:var(--bg3);padding:1.5rem 1.75rem;border-right:1px solid var(--border)}
+.outcome-cell:last-child{border-right:none}
+.outcome-num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--orange);line-height:1;display:block}
+.outcome-desc{font-size:0.75rem;color:var(--text-dim);margin-top:0.3rem}
+
+/* learning */
+.learning-strip{
+  border-left:3px solid var(--orange);padding:1rem 1.5rem;
+  background:rgba(232,86,42,0.05);
+}
+.learning-lbl{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:0.3rem}
+.learning-text{font-size:0.87rem;color:var(--text-mid);line-height:1.65}
+
+/* card footer */
+.card-foot{
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  padding:1.25rem 1.5rem;border-top:1px solid var(--border);
+  background:var(--bg3);
+}
+.btn-view-full{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  background:var(--orange);color:#fff;padding:0.55rem 1.3rem;
+  border-radius:2px;font-size:0.82rem;font-weight:500;transition:background 0.15s;
+}
+.btn-view-full:hover{background:var(--orange-dim)}
+.collapse-btn{
+  background:none;border:1px solid var(--border);color:var(--text-dim);
+  padding:0.4rem 1rem;font-size:0.75rem;cursor:pointer;
+  font-family:var(--sans);transition:border-color 0.15s,color 0.15s;
+}
+.collapse-btn:hover{border-color:var(--text-mid);color:var(--text)}
+
+/* ── TEARDOWN CARDS ── */
+.teardown-card{background:var(--bg2);border-bottom:1px solid var(--border)}
+.td-head{padding:2rem 2.2rem;cursor:pointer;transition:background 0.15s;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start}
+.td-head:hover{background:var(--bg3)}
+.td-eyebrow{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem}
+.td-title{font-family:var(--serif);font-size:1.25rem;font-weight:700;margin-bottom:0.4rem;line-height:1.3}
+.td-summary-text{font-size:0.86rem;color:var(--text-mid);line-height:1.6}
+.td-body{display:none;border-top:1px solid var(--border);background:var(--bg2)}
+.td-body.open{display:block}
+
+/* teardown 3-col */
+.td-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.td-col{background:var(--surface);padding:1.2rem 1.4rem}
+.td-col-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;font-weight:500}
+.col-works .td-col-label{color:#5dba7a}
+.col-doesnt .td-col-label{color:#e05a5a}
+.col-change .td-col-label{color:#d4a94a}
+.td-col ul{list-style:none}
+.td-col li{font-size:0.82rem;color:var(--text-mid);padding:0.3rem 0;border-bottom:1px solid var(--border);line-height:1.5}
+.td-col li:last-child{border-bottom:none}
+.td-verdict-wrap{padding:1.25rem 1.5rem;background:var(--bg3);border-top:1px solid var(--border)}
+.td-verdict{font-size:0.85rem;color:var(--text-mid);font-style:italic;border-left:2px solid var(--border);padding-left:0.85rem}
+
+/* ── RESUME ── */
+#resume-section{border-top:1px solid var(--border)}
+.resume-toolbar{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 1.5rem;border-bottom:1px solid var(--border);background:var(--surface);flex-wrap:wrap;gap:0.75rem}
+.resume-toolbar-left{font-size:0.8rem;color:var(--text-mid)}
+.resume-toolbar-left strong{color:var(--text)}
+.resume-note{font-size:0.7rem;color:var(--text-dim);margin-top:0.2rem}
+.resume-download-btn{display:inline-flex;align-items:center;gap:0.4rem;background:var(--orange);color:#fff;padding:0.45rem 1.1rem;border-radius:2px;font-size:0.8rem;font-weight:500;transition:background 0.15s}
+.resume-download-btn:hover{background:var(--orange-dim)}
+.resume-content{padding:2.5rem;max-width:740px;margin:0 auto;background:var(--bg2);border:1px solid var(--border);border-top:none}
+.r-name{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--text);margin-bottom:0.3rem}
+.r-role{font-size:0.9rem;color:var(--text-mid);margin-bottom:0.75rem}
+.r-contacts{display:flex;gap:1.25rem;flex-wrap:wrap;font-size:0.78rem;color:var(--text-dim);margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.r-contacts a{color:var(--orange)}
+.r-section-title{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin:1.5rem 0 0.75rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border)}
+.r-summary{font-size:0.88rem;color:var(--text-mid);line-height:1.75}
+.r-job{margin-bottom:1.5rem}
+.r-job-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.2rem}
+.r-job-title{font-size:0.92rem;font-weight:500;color:var(--text)}
+.r-job-period{font-size:0.75rem;color:var(--text-dim)}
+.r-job-company{font-size:0.8rem;color:var(--text-mid);margin-bottom:0.6rem;font-style:italic}
+.r-bullets{list-style:none;padding:0}
+.r-bullets li{font-size:0.83rem;color:var(--text-mid);padding:0.25rem 0 0.25rem 1rem;position:relative;line-height:1.6}
+.r-bullets li::before{content:'▸';position:absolute;left:0;color:var(--orange);font-size:0.7rem;top:0.35rem}
+.r-skills-grid{display:grid;grid-template-columns:auto 1fr;gap:0.5rem 1rem;font-size:0.83rem}
+.r-skill-cat{color:var(--orange);font-weight:500;white-space:nowrap}
+.r-skill-val{color:var(--text-mid)}
+.r-edu-item{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;padding:0.5rem 0;border-bottom:1px solid var(--border)}
+.r-edu-item:last-child{border-bottom:none}
+.r-edu-degree{font-size:0.88rem;color:var(--text)}
+.r-edu-school{font-size:0.78rem;color:var(--text-mid)}
+.r-edu-year{font-size:0.75rem;color:var(--text-dim)}
+.r-cert-row{font-size:0.83rem;color:var(--text-mid);line-height:1.8}
+
+/* ── ABOUT ── */
+#about{border-top:1px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:auto 1fr;gap:5rem;align-items:start}
+.about-mono{width:110px;height:110px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--text-mid)}
+.about-text p{font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.1rem}
+.about-text em{color:var(--text);font-style:normal;font-weight:500}
+.about-highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin:1.75rem 0}
+.ah-cell{background:var(--surface);padding:1rem 1.25rem}
+.ah-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:0.3rem}
+.ah-val{font-size:0.88rem;color:var(--text)}
+.about-links{display:flex;gap:1.25rem;margin-top:2rem;flex-wrap:wrap}
+.about-link{font-size:0.8rem;color:var(--text-mid);border-bottom:1px solid var(--border);padding-bottom:2px;transition:color 0.15s,border-color 0.15s}
+.about-link:hover{color:var(--orange);border-color:var(--orange)}
+
+footer{border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer p{font-size:0.75rem;color:var(--text-dim)}
+
+@media(max-width:768px){
+  nav{padding:0 1.25rem}
+  .nav-links a:not(.nav-cta):nth-child(n+3){display:none}
+  #hero{padding:100px 1.25rem 0}
+  .hero-glow{display:none}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .stat-cell{padding:1.25rem}
+  .section{padding:3.5rem 1.25rem}
+  .case-card-head{grid-template-columns:1fr}
+  .card-right{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+  .td-head{grid-template-columns:1fr}
+  .td-grid{grid-template-columns:1fr}
+  .outcome-strip{flex-direction:column}
+  .outcome-cell{border-right:none;border-bottom:1px solid var(--border)}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .about-highlights{grid-template-columns:1fr}
+  .r-skills-grid{grid-template-columns:1fr}
+  .resume-content{padding:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Mayank<span>.</span><sub>/ Product Manager</sub></div>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#resume-section">Résumé</a>
+    <a href="#about">About</a>
+    <a href="https://wa.me/919121717703" target="_blank" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-available"><div class="hero-dot"></div>Available for Senior PM Roles · Gurgaon, India</div>
+  <h1 class="hero-name"><span class="first">Mayank </span><span class="last">Kumar</span></h1>
+  <div class="hero-sub-row">
+    <p class="hero-tagline"><strong>Product Manager</strong> shipping 0→1 features and shaping strategy for India-scale consumer apps.</p>
+    <div class="hero-btns">
+      <a href="#work" class="btn-primary">View case studies →</a>
+      <a href="#resume-section" class="btn-ghost">Résumé</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-cell"><div class="stat-num">47%</div><div class="stat-lbl">Checkout drop-off surfaced via server-side GA4 — directly redesigned the slot workflow</div></div>
+    <div class="stat-cell"><div class="stat-num">12×</div><div class="stat-lbl">Platform throughput scaled — 1,500 to 19,000 transactions/sec at Zebi Data</div></div>
+    <div class="stat-cell"><div class="stat-num">98.53</div><div class="stat-lbl">CAT percentile — top 1.5% nationally. Signals how I approach structured problems.</div></div>
+    <div class="stat-cell"><div class="stat-num">9%</div><div class="stat-lbl">Festive revenue from corporate gifting — a segment that didn't exist before I built it</div></div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Roadmap Planning</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Product Discovery</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">PRD Writing</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Funnel Analysis</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">A/B Testing</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">User Interviews</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Feature Prioritisation</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Go-to-Market Planning</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">SQL</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">GA4 · MixPanel</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Figma</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">JIRA · Confluence</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Agile · Scrum</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Azure OpenAI</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Stakeholder Management</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Customer Journey Mapping</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">UX Optimisation</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Sprint Planning</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">API Integrations</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">SAFe POPM · CSM</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Roadmap Planning</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Product Discovery</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">PRD Writing</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Funnel Analysis</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">A/B Testing</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">User Interviews</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Feature Prioritisation</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Go-to-Market Planning</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">SQL</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">GA4 · MixPanel</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Figma</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">JIRA · Confluence</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Agile · Scrum</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Azure OpenAI</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Stakeholder Management</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Customer Journey Mapping</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">UX Optimisation</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">Sprint Planning</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">API Integrations</span><span class="marquee-star">✦</span>
+    <span class="marquee-item">SAFe POPM · CSM</span><span class="marquee-star">✦</span>
+  </div>
+</div>
+
+<div id="work">
+<div class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Selected Work</div>
+      <h2 class="section-title">Case studies</h2>
+    </div>
+    <p class="section-desc">Each case: real user pain → segments → pain points → solution → prioritisation.</p>
+  </div>
+  <div class="cases-list" id="cases-container"></div>
+</div>
+
+<div class="section" style="padding-top:1rem">
+  <div class="section-header" style="margin-bottom:2rem">
+    <div>
+      <div class="section-eyebrow">Teardowns</div>
+      <h2 class="section-title">Products I'd fix</h2>
+    </div>
+    <p class="section-desc">What works, what doesn't, what I'd change — and the reasoning.</p>
+  </div>
+  <div class="cases-list" id="teardowns-container"></div>
+</div>
+</div>
+
+<!-- RESUME -->
+<div id="resume-section">
+<div class="section">
+  <div class="section-eyebrow">Résumé</div>
+  <h2 class="section-title" style="margin-bottom:2rem">Mayank Kumar</h2>
+  <div class="resume-toolbar">
+    <div>
+      <div class="resume-toolbar-left"><strong>Mayank_Kumar_ProdManResume</strong> &nbsp;·&nbsp; Senior Consultant (PM), PwC India</div>
+      <!-- TO UPDATE RESUME: upload new PDF to resume/ folder, change filename below -->
+      <div class="resume-note">To update: upload new PDF to <code style="background:var(--surface);padding:1px 5px;font-size:0.7rem">resume/</code> folder → match filename in the download link</div>
+    </div>
+    <a class="resume-download-btn" href="resume/Mayank_Kumar_ProdManResume.pdf" download target="_blank">↓ Download Resume</a>
+  </div>
+  <div class="resume-content">
+    <div class="r-name">Mayank Kumar</div>
+    <div class="r-role">Product Manager | MBA, MDI Gurgaon | B.Tech. Computer Science</div>
+    <div class="r-contacts">
+      <span>+91-9121717703</span>
+      <a href="mailto:mayank.pm11@gmail.com">mayank.pm11@gmail.com</a>
+      <a href="https://www.linkedin.com/in/mayankkumarpm" target="_blank">linkedin.com/in/mayankkumarpm</a>
+      <a href="https://notion.so/mayank-portfolio" target="_blank">notion.so/mayank-portfolio</a>
+    </div>
+    <div class="r-section-title">Summary</div>
+    <div class="r-summary">Product Manager with 6+ years delivering e-commerce and platform products across checkout, catalogue, fulfilment, and AI-powered audit workflows. At PwC India, drove measurable outcomes across 6+ client engagements — including 17% conversion uplift, 40% stockout reduction, and 32% partner adoption growth — spanning D2C grocery and enterprise SaaS.</div>
+    <div class="r-section-title">Work Experience</div>
+    <div class="r-job">
+      <div class="r-job-header"><div class="r-job-title">Product Manager (Senior Consultant)</div><div class="r-job-period">Jul 2023 – Present</div></div>
+      <div class="r-job-company">PwC India · Bengaluru — Embedded PM for Le Marche (D2C grocery) & Satya Retail (omnichannel grocery)</div>
+      <ul class="r-bullets">
+        <li>Drove <strong style="color:var(--text)">17% checkout conversion uplift</strong> via Mo-Engage lifecycle campaigns and SEO, lifting platform engagement 28% annually</li>
+        <li>Improved purchase-event tracking 70% → ~100% via server-side GA4, surfacing a <strong style="color:var(--text)">47% checkout drop-off</strong> that informed slot-workflow redesign</li>
+        <li>Launched Shop by Category across <strong style="color:var(--text)">3,000+ products</strong>, increasing homepage engagement 23% and reducing bounce rates 12%</li>
+        <li>Shipped Similar Products recommendations, improving <strong style="color:var(--text)">PDP-to-cart conversion 15%</strong> and cutting PDP exit rates 38% → 29%</li>
+        <li>Reduced stockouts <strong style="color:var(--text)">40%</strong> and improved festive fulfilment efficiency 25% via demand-velocity modelling</li>
+        <li>Unlocked corporate gifting — <strong style="color:var(--text)">9% of festive-season orders at 4.2× AOV</strong> vs regular purchases</li>
+        <li>Increased Satya Retail partner adoption <strong style="color:var(--text)">32%</strong> by rebuilding FoS workflows, improving productivity 24%</li>
+        <li>Cut post-release defects <strong style="color:var(--text)">40%</strong> owning sprint validation and UAT across 6+ engagements</li>
+        <li>Spearheading AI-powered scoping on PwC's <strong style="color:var(--text)">NextGenAudit</strong> platform via Azure OpenAI for global FY26 rollout</li>
+      </ul>
+    </div>
+    <div class="r-job">
+      <div class="r-job-header"><div class="r-job-title">Product Management Intern</div><div class="r-job-period">Apr – Jun 2022</div></div>
+      <div class="r-job-company">ePayLater (BNPL Fintech) · Bengaluru</div>
+      <ul class="r-bullets">
+        <li>Analysed three BNPL checkout funnels, improving completion rates through targeted experimentation</li>
+        <li>Conducted 12+ customer interviews identifying onboarding gaps influencing repayment prioritisation</li>
+        <li>Built SQL dashboards tracking five credit-risk metrics for experiment prioritisation</li>
+      </ul>
+    </div>
+    <div class="r-job">
+      <div class="r-job-header"><div class="r-job-title">Software Engineer → Senior Software Engineer</div><div class="r-job-period">Aug 2017 – Apr 2021</div></div>
+      <div class="r-job-company">Zebi Data · Hyderabad — Hyperledger Fabric blockchain for government and enterprise</div>
+      <ul class="r-bullets">
+        <li>Optimised platform throughput <strong style="color:var(--text)">12×</strong> — 1,500 to 19,000 tx/sec via async processing</li>
+        <li>Developed migration pipelines validating <strong style="color:var(--text)">800K+ historical records</strong> with zero data loss</li>
+        <li>Scaled active verifications to <strong style="color:var(--text)">5 million+ transactions</strong> by onboarding enterprise and government clients</li>
+      </ul>
+    </div>
+    <div class="r-section-title">Skills</div>
+    <div class="r-skills-grid">
+      <div class="r-skill-cat">Product</div><div class="r-skill-val">Roadmap Planning · Product Discovery · PRD Writing · User Stories · Stakeholder Management · Funnel Analysis · A/B Testing · Feature Prioritisation · Customer Journey Mapping · UX Optimisation · API Integrations · Go-to-Market Planning · User Interviews</div>
+      <div class="r-skill-cat">Delivery</div><div class="r-skill-val">Agile · Scrum · Sprint Planning · Backlog Grooming · Acceptance Criteria · UAT Coordination · Release Planning · Cross-functional Collaboration</div>
+      <div class="r-skill-cat">Analytics & Tools</div><div class="r-skill-val">SQL · GA4 · MixPanel · Looker Studio · Figma · JIRA · Confluence · Postman · Excel · Notion · Azure DevOps</div>
+      <div class="r-skill-cat">Technical</div><div class="r-skill-val">Azure OpenAI · Cursor · Lovable · Generative AI · REST APIs · System Design · Python · CI/CD Basics</div>
+    </div>
+    <div class="r-section-title">Education</div>
+    <div class="r-edu-item"><div><div class="r-edu-degree">MBA — General Management</div><div class="r-edu-school">Management Development Institute (MDI), Gurgaon</div></div><div class="r-edu-year">2021–2023</div></div>
+    <div class="r-edu-item"><div><div class="r-edu-degree">B.Tech — Computer Science</div><div class="r-edu-school">Guru Ghasidas Vishwavidyalaya, Bilaspur</div></div><div class="r-edu-year">2013–2017</div></div>
+    <div class="r-section-title">Certifications & Achievements</div>
+    <div class="r-cert-row"><strong style="color:var(--text)">Certifications:</strong> SAFe 6.0 POPM (2026) · CSM (2024) · Microsoft AI PM Specialisation (2025) · PM Fellowship – Upraised (2024)</div>
+    <div class="r-cert-row" style="margin-top:0.5rem"><strong style="color:var(--text)">Competitive Exams:</strong> CAT 2020: <span style="color:var(--orange);font-weight:600">98.53 percentile</span> · IIFT 2020: <span style="color:var(--orange);font-weight:600">98.15 percentile</span></div>
+  </div>
+</div>
+</div>
+
+<div id="about">
+<div class="section">
+  <div class="section-eyebrow">About</div>
+  <h2 class="section-title" style="margin-bottom:2.5rem">Why I do this</h2>
+  <div class="about-grid">
+    <div class="about-mono">MK</div>
+    <div class="about-text">
+      <p>I started as a software engineer building blockchain infrastructure at 19,000 transactions per second. Then I realised I cared more about <em>why</em> we were building than how — and I went back to get an MBA from MDI Gurgaon (CAT 98.53 percentile) specifically to make that switch with credibility.</p>
+      <p>At PwC, I've been the embedded PM for India's premium D2C grocery brands — not an advisor, an owner. When checkout conversion dropped, <em>I fixed it.</em> When nobody knew why 47% of users were dropping off, I built the server-side GA4 instrumentation that surfaced it. When a corporate gifting segment didn't exist, I built the workflows that made it 9% of festive revenue at 4.2× average order value.</p>
+      <p>What makes me different: I have a technical foundation that lets me talk to engineers without a translator, an analytics instinct that defaults to data before opinion, and enough structured problem-solving practice to stay calm when things are messy. Most PMs can write a PRD. Fewer can write the SQL to validate whether it worked.</p>
+      <p>Currently open to <em>Senior PM roles</em> in consumer tech, platform products, or AI-driven workflows. Based in Gurgaon, open to Bengaluru or remote.</p>
+      <div class="about-highlights">
+        <div class="ah-cell"><div class="ah-label">Current role</div><div class="ah-val">Senior Consultant (PM), PwC India</div></div>
+        <div class="ah-cell"><div class="ah-label">Education</div><div class="ah-val">MBA MDI Gurgaon · B.Tech CS</div></div>
+        <div class="ah-cell"><div class="ah-label">Notable scores</div><div class="ah-val">CAT 98.53 · IIFT 98.15 percentile</div></div>
+        <div class="ah-cell"><div class="ah-label">Certifications</div><div class="ah-val">SAFe POPM · CSM · Microsoft AI PM</div></div>
+      </div>
+      <div class="about-links">
+        <a href="https://www.linkedin.com/in/mayankkumarpm" target="_blank" class="about-link">LinkedIn ↗</a>
+        <a href="#resume-section" class="about-link">Resume ↗</a>
+        <a href="https://wa.me/919121717703" target="_blank" class="about-link">WhatsApp ↗</a>
+        <a href="mailto:mayank.pm11@gmail.com" class="about-link">mayank.pm11@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <p>Mayank Kumar · Product Manager · Gurgaon, India</p>
+  <p>mayank.pm11@gmail.com · +91-9121717703</p>
+</footer>
+
+<script>
+/* ================================================================
+   HOW TO ADD A NEW CASE STUDY
+   ================================================================
+   1. Upload your PDF to the cases/ folder on GitHub
+      e.g.  cases/amazon-search.pdf
+
+   2. Copy one { } block below and paste it before the closing ]
+      Make sure you add a comma after the previous block
+
+   3. Fill in all the fields — each field is explained below
+
+   4. Upload the updated index.html to GitHub
+      Your new case appears automatically — same layout, same format
+
+   FIELDS EXPLAINED:
+   tags      → labels shown as chips on the card (array of strings)
+   real      → true = green "Real case" badge, false = no badge
+   title     → headline of the case
+   problem   → 2-3 lines shown on the collapsed card
+   metrics   → up to 3 short bullet chips on the card (array)
+   problem_detail → full problem description shown when expanded
+   segments  → who the users are / segmentation done
+   painPoints → key pain points identified (use \n for new lines
+                OR pass an array like ["point 1","point 2"])
+   solution  → what you built or proposed
+   prioritisation → how you chose this solution (RICE, MoSCoW etc)
+   outcomes  → up to 4 objects: { num: "17%", desc: "label" }
+   learning  → the single biggest takeaway
+   pdf       → path to your PDF: "cases/your-filename.pdf"
+================================================================ */
+
+const CASES = [
+  {
+    tags: ["Ola Maps", "Platform · 0→1"],
+    real: true,
+    title: "Designing India's map search experience to challenge Google Maps",
+    problem: "Ola Maps was entering a market owned by Google Maps. Task: design a differentiated, India-first search experience and drive adoption through Ola's 50M+ ride users — not a standalone launch.",
+    metrics: [
+      "3 competitors benchmarked across 11 feature dimensions",
+      "AR Live View RICE score: 92.57 — shipped first",
+      "3 India-first differentiators designed"
+    ],
+    problem_detail: "Ola was launching Maps into a market dominated by Google Maps and Apple Maps. The problem statement required designing a search experience that was India-specific, benchmarked against top players, and had a clear path to user adoption. The business had multiple potential use cases (rides, EVs, B2B APIs, delivery) but needed to pick one to build awareness fast.",
+    segments: [
+      "Passengers — primary focus (highest reach via Ola rides app)",
+      "College students: going to college, personal exploration",
+      "Working professionals: daily commute, personal use",
+      "Senior citizens: personal use, assisted booking",
+      "Drivers — secondary: navigation accuracy during trips",
+      "Indirect passengers — tertiary: booking for family members"
+    ],
+    painPoints: [
+      "Zero engagement during 'waiting for cab' and 'in-ride' phases — wasted surface",
+      "No India-specific AR feature on any existing map product",
+      "Google Maps AR restricted to pedestrians only — in-vehicle discovery gap",
+      "No social layer showing where friends/contacts have been",
+      "Freshness and trust signals missing for local, informal places"
+    ],
+    solution: "Designed AR Live View — passengers point camera at surroundings and get real-time category search overlaid on the camera feed (pharmacies, restaurants, petrol pumps along route). Category filter within Live View. Passenger-only to prevent driver distraction. Also proposed: Social Connect (friend visit history on results) and Virtual Preview (AI + crowdsourced place previews).",
+    prioritisation: "Applied RICE scoring across 3 features: Interactive Map + AR Live View (92.57) vs Virtual Preview (72) vs Social Connect (42). AR Live View won on Reach (50M ride users), Impact (fills a zero-engagement window), Confidence (clear user need, no current solution), Effort (manageable integration into existing rides app).",
+    outcomes: [
+      { num: "92.57", desc: "RICE score — AR Live View (top-ranked)" },
+      { num: "11", desc: "Feature dimensions benchmarked across 3 competitors" },
+      { num: "3", desc: "Differentiated India-first features designed" }
+    ],
+    learning: "When entering a winner-takes-all market, the fastest path to awareness is riding distribution you already own. The Ola rides app was the trojan horse. 50M users who already trust Ola for navigation beat any marketing budget.",
+    pdf: "cases/ola-maps-case.pdf"
+  },
+  {
+    tags: ["Swiggy", "Consumer · 0→1 Feature"],
+    real: true,
+    title: "Swiggy Regular — solving decision fatigue for India's daily food orderers",
+    problem: "India's working class orders food 5–6× a week but burns 50% of ordering time just deciding what to eat. Root cause was the paradox of choice — not price, not delivery speed. Nobody had solved it.",
+    metrics: [
+      "Swiggy Regular: RICE 74.67 — highest of 3 solutions",
+      "20% time saved per fulfilled order",
+      "North Star: Revenue from scheduled orders"
+    ],
+    problem_detail: "Swiggy's independent working-class users (23–30) order food almost daily but face the same decision overhead every time. This is a repeated-usage problem — the pain compounds with frequency. An investor pitch required identifying a new feature that extends Swiggy's value proposition and creates a defensible revenue stream.",
+    segments: [
+      "Independent Working Class (23–30) — primary: highest frequency + intensity",
+      "Rishabh, 27: lives solo, orders 5–6×/week, wants to avoid daily decision",
+      "Students (17–22) — secondary: flexible time, lower intensity",
+      "Divya, 20: orders when too busy for college work, budget-conscious",
+      "Living with Family (31–60) — occasional users, not targeted"
+    ],
+    painPoints: [
+      "Selecting restaurant/food category = 30% of total ordering time (highest psych load)",
+      "Selecting food item = 20% of ordering time (second highest psych load)",
+      "Checkout + payment = 20% of time, repeated every single order",
+      "No memory of past customisations — re-enter preferences each time",
+      "Paradox of choice: too many options → decision paralysis → order abandonment"
+    ],
+    solution: "Designed 'Swiggy Regular' — a new home screen section. Users set a week-long food schedule: restaurant + item + delivery time per day. Advance payment via Swiggy wallet. Minimum 5–7 day threshold to qualify for discounted rates. Repeat cycle checkbox extends the schedule automatically. Full wireframes: set new schedule, edit existing schedule, payment top-up flow.",
+    prioritisation: "RICE scoring: Swiggy Regular (74.67) vs Surprise Me! (45) vs Tiffin Service partnership (40.5). Regular won because it targets all 3 high-psych-load steps simultaneously, creates predictable advance payment revenue, builds compounding LTV through repeat schedules, and has manageable engineering effort.",
+    outcomes: [
+      { num: "74.67", desc: "RICE score — highest of 3 solutions evaluated" },
+      { num: "20%", desc: "Time saved per fulfilled order (checkout eliminated)" },
+      { num: "5", desc: "Metrics categories: Discovery, Adoption, Engagement, Revenue, Retention" }
+    ],
+    learning: "The biggest friction wasn't price or delivery speed — it was the decision itself. Paradox of choice is real and measurable: 50% of ordering time, highest negative psych score. The solution that removes cognitive load, not just clicks, wins every time.",
+    pdf: "cases/swiggy-case.pdf"
+  }
+  // ─────────────────────────────────────────────────────
+  // ADD YOUR NEXT CASE HERE
+  // Copy the block above (from { to }),
+  // paste it here with a comma after the block above,
+  // fill in your details, upload your PDF to cases/ folder
+  // ─────────────────────────────────────────────────────
+];
+
+/* ================================================================
+   HOW TO ADD A NEW TEARDOWN
+   ================================================================
+   1. Upload your PDF to the teardowns/ folder on GitHub
+   2. Copy one { } block below, paste before the closing ]
+   3. Fill in all fields
+   4. Upload updated index.html
+
+   FIELDS:
+   company   → eyebrow label e.g. "Teardown #4 — Zomato"
+   title     → headline
+   summary   → 1-2 lines shown on collapsed card
+   works     → array of strings: what works well
+   doesnt    → array of strings: what doesn't work
+   change    → array of strings: what you'd change
+   verdict   → italic conclusion sentence
+   pdf       → "teardowns/your-filename.pdf"
+================================================================ */
+
+const TEARDOWNS = [
+  {
+    company: "Teardown #1 — Zepto (Quick Commerce)",
+    title: "Why 10-minute delivery has a trust problem",
+    summary: "Zepto nailed speed. The next moat is trust — and the post-order experience is where it's being lost.",
+    works: [
+      "Live order tracking is best-in-class — every state visible to the user",
+      "Dark store density creates a genuine and defensible speed moat",
+      "Category UI is clean, fast, and easy to scan"
+    ],
+    doesnt: [
+      "Substitutions happen silently — users discover it only at the doorstep",
+      "Refund flow requires 5 taps and a chat agent for basic cases",
+      "No freshness or quality signal for produce and dairy"
+    ],
+    change: [
+      "Pre-notify substitutions before dispatch with a 1-tap reject option",
+      "Self-serve refund for orders under ₹200 — no agent, instant resolution",
+      "'Packed today' badge on perishables — one data field, massive trust signal"
+    ],
+    verdict: "Speed is solved. The next moat is trust. Whoever fixes the post-order experience wins repeat purchase.",
+    pdf: "teardowns/zepto-teardown.pdf"
+  },
+  {
+    company: "Teardown #2 — Notion (Productivity)",
+    title: "The blank page problem no one has fixed",
+    summary: "Notion is powerful. But its onboarding kills new user activation — limiting its TAM more than any missing feature.",
+    works: [
+      "Block-based editing is genuinely flexible without being complex",
+      "Database views (kanban, table, calendar) are powerful for power users",
+      "Template gallery sets reasonable first-time expectations"
+    ],
+    doesnt: [
+      "New users face an infinite blank canvas — activation is brutal",
+      "Search is slow and frequently returns stale, outdated results",
+      "Mobile experience is a port of desktop, not a rethink for mobile use"
+    ],
+    change: [
+      "Role-based onboarding (PM / designer / founder) → pre-fill a relevant workspace",
+      "Persistent search index — stale results destroy trust faster than any bug",
+      "Mobile-first edit mode with a simplified, context-aware block palette"
+    ],
+    verdict: "Notion's TAM is limited by its onboarding, not its features. The blank-page fix is worth more than any new block type.",
+    pdf: "teardowns/notion-teardown.pdf"
+  },
+  {
+    company: "Teardown #3 — LinkedIn Job Applications (B2C)",
+    title: "Great for everyone except the person applying",
+    summary: "LinkedIn optimises for recruiter volume, not applicant quality. The job seeker experience is broken by design.",
+    works: [
+      "Easy Apply reduces application friction to near zero",
+      "Network + job discovery in a single feed is genuinely useful",
+      "Recruiter signals (viewed, downloaded) set some expectations"
+    ],
+    doesnt: [
+      "Applications disappear — no status, no feedback, no timeline for the applicant",
+      "Job descriptions are unstructured: no salary range, vague requirements",
+      "Ghosting is systemic; LinkedIn profits from volume, not match quality"
+    ],
+    change: [
+      "Application status pipeline per job — a simple kanban the applicant can see",
+      "Mandatory salary range on all postings (legislation is coming anyway)",
+      "Auto-close stale applications at 30 days with an automatic status update"
+    ],
+    verdict: "LinkedIn optimises for recruiters, not applicants. The product that genuinely serves job seekers will own the next decade of talent markets.",
+    pdf: "teardowns/linkedin-teardown.pdf"
+  }
+  // ─────────────────────────────────────────────────────
+  // ADD TEARDOWN 4 HERE — same process as above
+  // ─────────────────────────────────────────────────────
+];
+
+/* ================================================================
+   RENDERER — do not edit below this line
+================================================================ */
+
+function formatList(data) {
+  if (!data) return '';
+  if (Array.isArray(data)) {
+    return '<ul>' + data.map(d => `<li>${d}</li>`).join('') + '</ul>';
+  }
+  // plain string — split on \n if present
+  const lines = data.split('\n').map(l => l.trim()).filter(Boolean);
+  if (lines.length > 1) {
+    return '<ul>' + lines.map(l => `<li>${l}</li>`).join('') + '</ul>';
+  }
+  return `<p>${data}</p>`;
+}
+
+function renderCases() {
+  document.getElementById('cases-container').innerHTML = CASES.map((c, i) => `
+    <div class="case-card">
+      <div class="case-card-head" onclick="toggleCard('case-${i}', this)">
+        <div>
+          <div class="card-tags">
+            ${c.real ? '<span class="card-tag real">✓ Real case</span>' : ''}
+            ${c.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+          </div>
+          <div class="card-title-main">${c.title}</div>
+          <div class="card-problem-text">${c.problem}</div>
+          <div class="card-metrics-row">
+            ${c.metrics.map(m => `<div class="card-metric-chip">${m}</div>`).join('')}
+          </div>
+        </div>
+        <div class="card-right">
+          <span class="expand-hint" id="hint-case-${i}">Click to expand ↓</span>
+          <a class="btn-view-full-head" href="${c.pdf}" target="_blank" onclick="event.stopPropagation()">View full case ↗</a>
+        </div>
+      </div>
+
+      <div class="card-body" id="case-${i}">
+        <div class="case-sections">
+
+          <div class="case-section">
+            <div class="case-section-head">
+              <div class="case-section-num">01</div>
+              <div class="case-section-label">Problem</div>
+            </div>
+            <div class="case-section-body">${formatList(c.problem_detail)}</div>
+          </div>
+
+          <div class="case-section">
+            <div class="case-section-head">
+              <div class="case-section-num">02</div>
+              <div class="case-section-label">User Segments</div>
+            </div>
+            <div class="case-section-body">${formatList(c.segments)}</div>
+          </div>
+
+          <div class="case-section">
+            <div class="case-section-head">
+              <div class="case-section-num">03</div>
+              <div class="case-section-label">Pain Points</div>
+            </div>
+            <div class="case-section-body">${formatList(c.painPoints)}</div>
+          </div>
+
+          <div class="case-section">
+            <div class="case-section-head">
+              <div class="case-section-num">04</div>
+              <div class="case-section-label">Solution</div>
+            </div>
+            <div class="case-section-body">${formatList(c.solution)}</div>
+          </div>
+
+          <div class="case-section">
+            <div class="case-section-head">
+              <div class="case-section-num">05</div>
+              <div class="case-section-label">Prioritisation</div>
+            </div>
+            <div class="case-section-body">${formatList(c.prioritisation)}</div>
+          </div>
+
+        </div>
+
+        <div class="outcome-strip">
+          ${c.outcomes.map(o => `
+            <div class="outcome-cell">
+              <span class="outcome-num">${o.num}</span>
+              <div class="outcome-desc">${o.desc}</div>
+            </div>`).join('')}
+        </div>
+
+        <div class="learning-strip">
+          <div class="learning-lbl">Key learning</div>
+          <div class="learning-text">${c.learning}</div>
+        </div>
+
+        <div class="card-foot">
+          <a class="btn-view-full" href="${c.pdf}" target="_blank">View full case ↗</a>
+          <button class="collapse-btn" onclick="toggleCard('case-${i}')">Collapse ↑</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderTeardowns() {
+  document.getElementById('teardowns-container').innerHTML = TEARDOWNS.map((t, i) => `
+    <div class="teardown-card">
+      <div class="td-head" onclick="toggleCard('td-${i}')">
+        <div>
+          <div class="td-eyebrow">${t.company}</div>
+          <div class="td-title">${t.title}</div>
+          <div class="td-summary-text">${t.summary}</div>
+        </div>
+        <div class="card-right">
+          <span class="expand-hint" id="hint-td-${i}">Click to expand ↓</span>
+        </div>
+      </div>
+      <div class="td-body" id="td-${i}">
+        <div class="td-grid">
+          <div class="td-col col-works">
+            <div class="td-col-label">✓ What works</div>
+            <ul>${t.works.map(w => `<li>${w}</li>`).join('')}</ul>
+          </div>
+          <div class="td-col col-doesnt">
+            <div class="td-col-label">✗ What doesn't</div>
+            <ul>${t.doesnt.map(w => `<li>${w}</li>`).join('')}</ul>
+          </div>
+          <div class="td-col col-change">
+            <div class="td-col-label">→ What I'd change</div>
+            <ul>${t.change.map(w => `<li>${w}</li>`).join('')}</ul>
+          </div>
+        </div>
+        <div class="td-verdict-wrap">
+          <div class="td-verdict">${t.verdict}</div>
+        </div>
+        <div class="card-foot">
+          <a class="btn-view-full" href="${t.pdf}" target="_blank">View full teardown ↗</a>
+          <button class="collapse-btn" onclick="toggleCard('td-${i}')">Collapse ↑</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleCard(id) {
+  const el = document.getElementById(id);
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.card-body, .td-body').forEach(e => e.classList.remove('open'));
+  document.querySelectorAll('[id^="hint-"]').forEach(e => { if(e) e.textContent = 'Click to expand ↓'; });
+  if (!isOpen) {
+    el.classList.add('open');
+    const hint = document.getElementById('hint-' + id);
+    if (hint) hint.textContent = 'Collapse ↑';
+    setTimeout(() => {
+      const card = el.closest('.case-card, .teardown-card');
+      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 80);
+  }
+}
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 80;
+  document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => a.classList.remove('active'));
+  const about = document.getElementById('about');
+  const resume = document.getElementById('resume-section');
+  if (about && y >= about.offsetTop) document.querySelector('a[href="#about"]')?.classList.add('active');
+  else if (resume && y >= resume.offsetTop) document.querySelector('a[href="#resume-section"]')?.classList.add('active');
+  else document.querySelector('a[href="#work"]')?.classList.add('active');
+});
+
+renderCases();
+renderTeardowns();
+</script>
+</body>
+</html>
