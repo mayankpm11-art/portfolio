@@ -46,6 +46,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .btn-primary:hover{background:var(--orange-dim)}
 .btn-ghost{display:inline-flex;align-items:center;border:1px solid var(--border);color:var(--text);padding:0.65rem 1.4rem;border-radius:99px;font-size:0.85rem;font-weight:500;transition:border-color 0.15s}
 .btn-ghost:hover{border-color:var(--text-mid)}
+/* hero two-col */
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;min-height:calc(100vh - 220px)}
+.hero-left{position:relative;z-index:2;padding-right:2rem}
+.hero-right{position:relative;height:100%;min-height:500px;overflow:hidden;pointer-events:none}
+.hero-svg{position:absolute;top:0;left:0;width:100%;height:100%}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);margin:0 -2.5rem}
 .stat-cell{padding:1.75rem 2.5rem;border-right:1px solid var(--border)}
 .stat-cell:last-child{border-right:none}
@@ -61,7 +66,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* SECTIONS */
-.section{padding:5rem 2.5rem;max-width:1100px;margin:0 auto}
+.section{padding:5rem 2.5rem;max-width:1200px;margin:0 auto}
 .section-eyebrow{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.6rem}
 .section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.1;margin-bottom:0.5rem}
 .section-desc{font-size:0.9rem;color:var(--text-mid);max-width:480px;line-height:1.65}
@@ -186,7 +191,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .resume-note{font-size:0.7rem;color:var(--text-dim);margin-top:0.2rem}
 .resume-download-btn{display:inline-flex;align-items:center;gap:0.4rem;background:var(--orange);color:#fff;padding:0.45rem 1.1rem;border-radius:2px;font-size:0.8rem;font-weight:500;transition:background 0.15s}
 .resume-download-btn:hover{background:var(--orange-dim)}
-.resume-content{padding:2.5rem;max-width:740px;margin:0 auto;background:var(--bg2);border:1px solid var(--border);border-top:none}
+.resume-content{padding:2.5rem;background:var(--bg2);border:1px solid var(--border);border-top:none}
 .r-name{font-family:var(--serif);font-size:1.8rem;font-weight:700;color:var(--text);margin-bottom:0.3rem}
 .r-role{font-size:0.9rem;color:var(--text-mid);margin-bottom:0.75rem}
 .r-contacts{display:flex;gap:1.25rem;flex-wrap:wrap;font-size:0.78rem;color:var(--text-dim);margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
@@ -233,6 +238,8 @@ footer p{font-size:0.75rem;color:var(--text-dim)}
   .nav-links a:not(.nav-cta):nth-child(n+3){display:none}
   #hero{padding:100px 1.25rem 0}
   .hero-glow{display:none}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{display:none}
   .hero-stats{grid-template-columns:repeat(2,1fr)}
   .stat-cell{padding:1.25rem}
   .section{padding:3.5rem 1.25rem}
@@ -252,31 +259,113 @@ footer p{font-size:0.75rem;color:var(--text-dim)}
 <body>
 
 <nav>
-  <div class="nav-brand">Mayank kumar<span>.</span><sub>/ Product Manager</sub></div>
+  <div class="nav-brand">Mayank Kumar<span>.</span><sub>/ Product Manager</sub></div>
   <div class="nav-links">
     <a href="#work">Work</a>
     <a href="#resume-section">Résumé</a>
-    <a href="#about">About</a>
+    <a href="#about">About Me</a>
     <a href="https://wa.me/919121717703" target="_blank" class="nav-cta">Get in touch</a>
   </div>
 </nav>
 
 <section id="hero">
   <div class="hero-glow"></div>
-  <div class="hero-available"><div class="hero-dot"></div>Available for Senior PM Roles · Gurgaon, India</div>
-  <h1 class="hero-name"><span class="first">Mayank </span><span class="last">Kumar</span></h1>
-  <div class="hero-sub-row">
-    <p class="hero-tagline"><strong>Product Manager</strong> shipping 0→1 features and shaping strategy for India-scale consumer apps.</p>
-    <div class="hero-btns">
-      <a href="#work" class="btn-primary">View case studies →</a>
-      <a href="#resume-section" class="btn-ghost">Résumé</a>
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="hero-available"><div class="hero-dot"></div>Available for PM Roles · Gurgaon, India</div>
+      <h1 class="hero-name"><span class="first">Mayank </span><span class="last">Kumar</span></h1>
+      <div class="hero-sub-row">
+        <p class="hero-tagline"><strong>Product Manager</strong> with 3 years of PM experience and an engineering foundation. At PwC India, I work as an embedded PM — leading discovery, writing specs, and seeing features through to launch across checkout optimisation, catalogue management, and AI-driven enterprise workflows.</p>
+        <div class="hero-btns">
+          <a href="#work" class="btn-primary">View case studies →</a>
+          <a href="#resume-section" class="btn-ghost">Résumé</a>
+        </div>
+      </div>
+    </div>
+    <!-- RIGHT — abstract SVG visual -->
+    <div class="hero-right" aria-hidden="true">
+      <svg class="hero-svg" viewBox="0 0 620 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="rg1" cx="50%" cy="50%" r="55%"><stop offset="0%" stop-color="#e8562a" stop-opacity="0.15"/><stop offset="100%" stop-color="#e8562a" stop-opacity="0"/></radialGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="sg"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M1,1 L7,4 L1,7 Z" fill="#e8562a" opacity="0.5"/>
+          </marker>
+          <linearGradient id="fadeL" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#141010" stop-opacity="1"/><stop offset="22%" stop-color="#141010" stop-opacity="0"/></linearGradient>
+          <linearGradient id="fadeT" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#141010" stop-opacity="0.7"/><stop offset="10%" stop-color="#141010" stop-opacity="0"/><stop offset="90%" stop-color="#141010" stop-opacity="0"/><stop offset="100%" stop-color="#141010" stop-opacity="0.7"/></linearGradient>
+        </defs>
+        <ellipse cx="310" cy="310" rx="220" ry="260" fill="url(#rg1)"/>
+        <g fill="#292020" opacity="0.7">
+          <circle cx="18" cy="36" r="1.4"/><circle cx="54" cy="36" r="1.4"/><circle cx="90" cy="36" r="1.4"/><circle cx="126" cy="36" r="1.4"/><circle cx="162" cy="36" r="1.4"/><circle cx="198" cy="36" r="1.4"/><circle cx="234" cy="36" r="1.4"/><circle cx="270" cy="36" r="1.4"/><circle cx="306" cy="36" r="1.4"/><circle cx="342" cy="36" r="1.4"/><circle cx="378" cy="36" r="1.4"/><circle cx="414" cy="36" r="1.4"/><circle cx="450" cy="36" r="1.4"/><circle cx="486" cy="36" r="1.4"/><circle cx="522" cy="36" r="1.4"/><circle cx="558" cy="36" r="1.4"/><circle cx="594" cy="36" r="1.4"/><circle cx="630" cy="36" r="1.4"/>
+          <circle cx="18" cy="72" r="1.4"/><circle cx="54" cy="72" r="1.4"/><circle cx="90" cy="72" r="1.4"/><circle cx="126" cy="72" r="1.4"/><circle cx="162" cy="72" r="1.4"/><circle cx="198" cy="72" r="1.4"/><circle cx="234" cy="72" r="1.4"/><circle cx="270" cy="72" r="1.4"/><circle cx="306" cy="72" r="1.4"/><circle cx="342" cy="72" r="1.4"/><circle cx="378" cy="72" r="1.4"/><circle cx="414" cy="72" r="1.4"/><circle cx="450" cy="72" r="1.4"/><circle cx="486" cy="72" r="1.4"/><circle cx="522" cy="72" r="1.4"/><circle cx="558" cy="72" r="1.4"/><circle cx="594" cy="72" r="1.4"/><circle cx="630" cy="72" r="1.4"/>
+          <circle cx="18" cy="108" r="1.4"/><circle cx="54" cy="108" r="1.4"/><circle cx="90" cy="108" r="1.4"/><circle cx="126" cy="108" r="1.4"/><circle cx="162" cy="108" r="1.4"/><circle cx="198" cy="108" r="1.4"/><circle cx="234" cy="108" r="1.4"/><circle cx="270" cy="108" r="1.4"/><circle cx="306" cy="108" r="1.4"/><circle cx="342" cy="108" r="1.4"/><circle cx="378" cy="108" r="1.4"/><circle cx="414" cy="108" r="1.4"/><circle cx="450" cy="108" r="1.4"/><circle cx="486" cy="108" r="1.4"/><circle cx="522" cy="108" r="1.4"/><circle cx="558" cy="108" r="1.4"/><circle cx="594" cy="108" r="1.4"/><circle cx="630" cy="108" r="1.4"/>
+          <circle cx="18" cy="144" r="1.4"/><circle cx="54" cy="144" r="1.4"/><circle cx="90" cy="144" r="1.4"/><circle cx="126" cy="144" r="1.4"/><circle cx="162" cy="144" r="1.4"/><circle cx="198" cy="144" r="1.4"/><circle cx="234" cy="144" r="1.4"/><circle cx="270" cy="144" r="1.4"/><circle cx="306" cy="144" r="1.4"/><circle cx="342" cy="144" r="1.4"/><circle cx="378" cy="144" r="1.4"/><circle cx="414" cy="144" r="1.4"/><circle cx="450" cy="144" r="1.4"/><circle cx="486" cy="144" r="1.4"/><circle cx="522" cy="144" r="1.4"/><circle cx="558" cy="144" r="1.4"/><circle cx="594" cy="144" r="1.4"/><circle cx="630" cy="144" r="1.4"/>
+          <circle cx="18" cy="180" r="1.4"/><circle cx="54" cy="180" r="1.4"/><circle cx="90" cy="180" r="1.4"/><circle cx="126" cy="180" r="1.4"/><circle cx="162" cy="180" r="1.4"/><circle cx="198" cy="180" r="1.4"/><circle cx="234" cy="180" r="1.4"/><circle cx="270" cy="180" r="1.4"/><circle cx="306" cy="180" r="1.4"/><circle cx="342" cy="180" r="1.4"/><circle cx="378" cy="180" r="1.4"/><circle cx="414" cy="180" r="1.4"/><circle cx="450" cy="180" r="1.4"/><circle cx="486" cy="180" r="1.4"/><circle cx="522" cy="180" r="1.4"/><circle cx="558" cy="180" r="1.4"/><circle cx="594" cy="180" r="1.4"/><circle cx="630" cy="180" r="1.4"/>
+          <circle cx="18" cy="216" r="1.4"/><circle cx="54" cy="216" r="1.4"/><circle cx="90" cy="216" r="1.4"/><circle cx="126" cy="216" r="1.4"/><circle cx="162" cy="216" r="1.4"/><circle cx="198" cy="216" r="1.4"/><circle cx="234" cy="216" r="1.4"/><circle cx="270" cy="216" r="1.4"/><circle cx="306" cy="216" r="1.4"/><circle cx="342" cy="216" r="1.4"/><circle cx="378" cy="216" r="1.4"/><circle cx="414" cy="216" r="1.4"/><circle cx="450" cy="216" r="1.4"/><circle cx="486" cy="216" r="1.4"/><circle cx="522" cy="216" r="1.4"/><circle cx="558" cy="216" r="1.4"/><circle cx="594" cy="216" r="1.4"/><circle cx="630" cy="216" r="1.4"/>
+          <circle cx="18" cy="252" r="1.4"/><circle cx="54" cy="252" r="1.4"/><circle cx="90" cy="252" r="1.4"/><circle cx="126" cy="252" r="1.4"/><circle cx="162" cy="252" r="1.4"/><circle cx="198" cy="252" r="1.4"/><circle cx="234" cy="252" r="1.4"/><circle cx="270" cy="252" r="1.4"/><circle cx="306" cy="252" r="1.4"/><circle cx="342" cy="252" r="1.4"/><circle cx="378" cy="252" r="1.4"/><circle cx="414" cy="252" r="1.4"/><circle cx="450" cy="252" r="1.4"/><circle cx="486" cy="252" r="1.4"/><circle cx="522" cy="252" r="1.4"/><circle cx="558" cy="252" r="1.4"/><circle cx="594" cy="252" r="1.4"/><circle cx="630" cy="252" r="1.4"/>
+          <circle cx="18" cy="288" r="1.4"/><circle cx="54" cy="288" r="1.4"/><circle cx="90" cy="288" r="1.4"/><circle cx="126" cy="288" r="1.4"/><circle cx="162" cy="288" r="1.4"/><circle cx="198" cy="288" r="1.4"/><circle cx="234" cy="288" r="1.4"/><circle cx="270" cy="288" r="1.4"/><circle cx="306" cy="288" r="1.4"/><circle cx="342" cy="288" r="1.4"/><circle cx="378" cy="288" r="1.4"/><circle cx="414" cy="288" r="1.4"/><circle cx="450" cy="288" r="1.4"/><circle cx="486" cy="288" r="1.4"/><circle cx="522" cy="288" r="1.4"/><circle cx="558" cy="288" r="1.4"/><circle cx="594" cy="288" r="1.4"/><circle cx="630" cy="288" r="1.4"/>
+          <circle cx="18" cy="324" r="1.4"/><circle cx="54" cy="324" r="1.4"/><circle cx="90" cy="324" r="1.4"/><circle cx="126" cy="324" r="1.4"/><circle cx="162" cy="324" r="1.4"/><circle cx="198" cy="324" r="1.4"/><circle cx="234" cy="324" r="1.4"/><circle cx="270" cy="324" r="1.4"/><circle cx="306" cy="324" r="1.4"/><circle cx="342" cy="324" r="1.4"/><circle cx="378" cy="324" r="1.4"/><circle cx="414" cy="324" r="1.4"/><circle cx="450" cy="324" r="1.4"/><circle cx="486" cy="324" r="1.4"/><circle cx="522" cy="324" r="1.4"/><circle cx="558" cy="324" r="1.4"/><circle cx="594" cy="324" r="1.4"/><circle cx="630" cy="324" r="1.4"/>
+          <circle cx="18" cy="360" r="1.4"/><circle cx="54" cy="360" r="1.4"/><circle cx="90" cy="360" r="1.4"/><circle cx="126" cy="360" r="1.4"/><circle cx="162" cy="360" r="1.4"/><circle cx="198" cy="360" r="1.4"/><circle cx="234" cy="360" r="1.4"/><circle cx="270" cy="360" r="1.4"/><circle cx="306" cy="360" r="1.4"/><circle cx="342" cy="360" r="1.4"/><circle cx="378" cy="360" r="1.4"/><circle cx="414" cy="360" r="1.4"/><circle cx="450" cy="360" r="1.4"/><circle cx="486" cy="360" r="1.4"/><circle cx="522" cy="360" r="1.4"/><circle cx="558" cy="360" r="1.4"/><circle cx="594" cy="360" r="1.4"/><circle cx="630" cy="360" r="1.4"/>
+          <circle cx="18" cy="396" r="1.4"/><circle cx="54" cy="396" r="1.4"/><circle cx="90" cy="396" r="1.4"/><circle cx="126" cy="396" r="1.4"/><circle cx="162" cy="396" r="1.4"/><circle cx="198" cy="396" r="1.4"/><circle cx="234" cy="396" r="1.4"/><circle cx="270" cy="396" r="1.4"/><circle cx="306" cy="396" r="1.4"/><circle cx="342" cy="396" r="1.4"/><circle cx="378" cy="396" r="1.4"/><circle cx="414" cy="396" r="1.4"/><circle cx="450" cy="396" r="1.4"/><circle cx="486" cy="396" r="1.4"/><circle cx="522" cy="396" r="1.4"/><circle cx="558" cy="396" r="1.4"/><circle cx="594" cy="396" r="1.4"/><circle cx="630" cy="396" r="1.4"/>
+          <circle cx="18" cy="432" r="1.4"/><circle cx="54" cy="432" r="1.4"/><circle cx="90" cy="432" r="1.4"/><circle cx="126" cy="432" r="1.4"/><circle cx="162" cy="432" r="1.4"/><circle cx="198" cy="432" r="1.4"/><circle cx="234" cy="432" r="1.4"/><circle cx="270" cy="432" r="1.4"/><circle cx="306" cy="432" r="1.4"/><circle cx="342" cy="432" r="1.4"/><circle cx="378" cy="432" r="1.4"/><circle cx="414" cy="432" r="1.4"/><circle cx="450" cy="432" r="1.4"/><circle cx="486" cy="432" r="1.4"/><circle cx="522" cy="432" r="1.4"/><circle cx="558" cy="432" r="1.4"/><circle cx="594" cy="432" r="1.4"/><circle cx="630" cy="432" r="1.4"/>
+          <circle cx="18" cy="468" r="1.4"/><circle cx="54" cy="468" r="1.4"/><circle cx="90" cy="468" r="1.4"/><circle cx="126" cy="468" r="1.4"/><circle cx="162" cy="468" r="1.4"/><circle cx="198" cy="468" r="1.4"/><circle cx="234" cy="468" r="1.4"/><circle cx="270" cy="468" r="1.4"/><circle cx="306" cy="468" r="1.4"/><circle cx="342" cy="468" r="1.4"/><circle cx="378" cy="468" r="1.4"/><circle cx="414" cy="468" r="1.4"/><circle cx="450" cy="468" r="1.4"/><circle cx="486" cy="468" r="1.4"/><circle cx="522" cy="468" r="1.4"/><circle cx="558" cy="468" r="1.4"/><circle cx="594" cy="468" r="1.4"/><circle cx="630" cy="468" r="1.4"/>
+          <circle cx="18" cy="504" r="1.4"/><circle cx="54" cy="504" r="1.4"/><circle cx="90" cy="504" r="1.4"/><circle cx="126" cy="504" r="1.4"/><circle cx="162" cy="504" r="1.4"/><circle cx="198" cy="504" r="1.4"/><circle cx="234" cy="504" r="1.4"/><circle cx="270" cy="504" r="1.4"/><circle cx="306" cy="504" r="1.4"/><circle cx="342" cy="504" r="1.4"/><circle cx="378" cy="504" r="1.4"/><circle cx="414" cy="504" r="1.4"/><circle cx="450" cy="504" r="1.4"/><circle cx="486" cy="504" r="1.4"/><circle cx="522" cy="504" r="1.4"/><circle cx="558" cy="504" r="1.4"/><circle cx="594" cy="504" r="1.4"/><circle cx="630" cy="504" r="1.4"/>
+          <circle cx="18" cy="540" r="1.4"/><circle cx="54" cy="540" r="1.4"/><circle cx="90" cy="540" r="1.4"/><circle cx="126" cy="540" r="1.4"/><circle cx="162" cy="540" r="1.4"/><circle cx="198" cy="540" r="1.4"/><circle cx="234" cy="540" r="1.4"/><circle cx="270" cy="540" r="1.4"/><circle cx="306" cy="540" r="1.4"/><circle cx="342" cy="540" r="1.4"/><circle cx="378" cy="540" r="1.4"/><circle cx="414" cy="540" r="1.4"/><circle cx="450" cy="540" r="1.4"/><circle cx="486" cy="540" r="1.4"/><circle cx="522" cy="540" r="1.4"/><circle cx="558" cy="540" r="1.4"/><circle cx="594" cy="540" r="1.4"/><circle cx="630" cy="540" r="1.4"/>
+          <circle cx="18" cy="576" r="1.4"/><circle cx="54" cy="576" r="1.4"/><circle cx="90" cy="576" r="1.4"/><circle cx="126" cy="576" r="1.4"/><circle cx="162" cy="576" r="1.4"/><circle cx="198" cy="576" r="1.4"/><circle cx="234" cy="576" r="1.4"/><circle cx="270" cy="576" r="1.4"/><circle cx="306" cy="576" r="1.4"/><circle cx="342" cy="576" r="1.4"/><circle cx="378" cy="576" r="1.4"/><circle cx="414" cy="576" r="1.4"/><circle cx="450" cy="576" r="1.4"/><circle cx="486" cy="576" r="1.4"/><circle cx="522" cy="576" r="1.4"/><circle cx="558" cy="576" r="1.4"/><circle cx="594" cy="576" r="1.4"/><circle cx="630" cy="576" r="1.4"/>
+          <circle cx="18" cy="612" r="1.4"/><circle cx="54" cy="612" r="1.4"/><circle cx="90" cy="612" r="1.4"/><circle cx="126" cy="612" r="1.4"/><circle cx="162" cy="612" r="1.4"/><circle cx="198" cy="612" r="1.4"/><circle cx="234" cy="612" r="1.4"/><circle cx="270" cy="612" r="1.4"/><circle cx="306" cy="612" r="1.4"/><circle cx="342" cy="612" r="1.4"/><circle cx="378" cy="612" r="1.4"/><circle cx="414" cy="612" r="1.4"/><circle cx="450" cy="612" r="1.4"/><circle cx="486" cy="612" r="1.4"/><circle cx="522" cy="612" r="1.4"/><circle cx="558" cy="612" r="1.4"/><circle cx="594" cy="612" r="1.4"/><circle cx="630" cy="612" r="1.4"/>
+        </g>
+        <line x1="200" y1="110" x2="200" y2="514" stroke="#e8562a" stroke-width="1.5" opacity="0.15" stroke-dasharray="4,6"/>
+        <line x1="200" y1="110" x2="200" y2="178" stroke="#e8562a" stroke-width="1.8" opacity="0.45" marker-end="url(#arr)"/>
+        <line x1="200" y1="222" x2="200" y2="290" stroke="#e8562a" stroke-width="1.8" opacity="0.45" marker-end="url(#arr)"/>
+        <line x1="200" y1="334" x2="200" y2="402" stroke="#e8562a" stroke-width="1.8" opacity="0.45" marker-end="url(#arr)"/>
+        <line x1="200" y1="446" x2="200" y2="514" stroke="#e8562a" stroke-width="1.8" opacity="0.45" marker-end="url(#arr)"/>
+        <circle cx="200" cy="88" r="26" fill="#e8562a" opacity="0.06" filter="url(#sg)"/>
+        <circle cx="200" cy="88" r="20" fill="#1d1717" stroke="#e8562a" stroke-width="1.8" opacity="0.7"/>
+        <text x="200" y="93" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="500" fill="#e8562a" text-anchor="middle" opacity="0.9">01</text>
+        <line x1="220" y1="88" x2="236" y2="110" stroke="#e8562a" stroke-width="1" opacity="0.25"/>
+        <rect x="240" y="66" width="160" height="44" rx="3" fill="#1d1717" stroke="rgba(232,86,42,0.2)" stroke-width="1"/>
+        <text x="252" y="83" font-family="Inter,system-ui,sans-serif" font-size="7.5" font-weight="500" fill="#8a8480" letter-spacing="1.6">DISCOVERY</text>
+        <text x="252" y="99" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7a7470">User research · Interviews</text>
+        <circle cx="200" cy="200" r="26" fill="#e8562a" opacity="0.06" filter="url(#sg)"/>
+        <circle cx="200" cy="200" r="20" fill="#1d1717" stroke="#e8562a" stroke-width="1.8" opacity="0.7"/>
+        <text x="200" y="205" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="500" fill="#e8562a" text-anchor="middle" opacity="0.9">02</text>
+        <line x1="220" y1="200" x2="236" y2="222" stroke="#e8562a" stroke-width="1" opacity="0.25"/>
+        <rect x="240" y="178" width="160" height="44" rx="3" fill="#1d1717" stroke="rgba(232,86,42,0.2)" stroke-width="1"/>
+        <text x="252" y="195" font-family="Inter,system-ui,sans-serif" font-size="7.5" font-weight="500" fill="#8a8480" letter-spacing="1.6">PAIN POINTS</text>
+        <text x="252" y="211" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7a7470">JTBD · Prioritised problems</text>
+        <circle cx="200" cy="312" r="26" fill="#e8562a" opacity="0.06" filter="url(#sg)"/>
+        <circle cx="200" cy="312" r="20" fill="#1d1717" stroke="#e8562a" stroke-width="1.8" opacity="0.7"/>
+        <text x="200" y="317" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="500" fill="#e8562a" text-anchor="middle" opacity="0.9">03</text>
+        <line x1="220" y1="312" x2="236" y2="334" stroke="#e8562a" stroke-width="1" opacity="0.25"/>
+        <rect x="240" y="290" width="160" height="44" rx="3" fill="#1d1717" stroke="rgba(232,86,42,0.2)" stroke-width="1"/>
+        <text x="252" y="307" font-family="Inter,system-ui,sans-serif" font-size="7.5" font-weight="500" fill="#8a8480" letter-spacing="1.6">PRIORITISE</text>
+        <text x="252" y="323" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7a7470">RICE · MoSCoW · Roadmap</text>
+        <circle cx="200" cy="424" r="26" fill="#e8562a" opacity="0.06" filter="url(#sg)"/>
+        <circle cx="200" cy="424" r="20" fill="#1d1717" stroke="#e8562a" stroke-width="1.8" opacity="0.7"/>
+        <text x="200" y="429" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="500" fill="#e8562a" text-anchor="middle" opacity="0.9">04</text>
+        <line x1="220" y1="424" x2="236" y2="446" stroke="#e8562a" stroke-width="1" opacity="0.25"/>
+        <rect x="240" y="402" width="160" height="44" rx="3" fill="#1d1717" stroke="rgba(232,86,42,0.2)" stroke-width="1"/>
+        <text x="252" y="419" font-family="Inter,system-ui,sans-serif" font-size="7.5" font-weight="500" fill="#8a8480" letter-spacing="1.6">SOLUTION</text>
+        <text x="252" y="435" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#7a7470">Specs · Wireframes · Build</text>
+        <circle cx="200" cy="536" r="26" fill="#e8562a" opacity="0.06" filter="url(#sg)"/>
+        <circle cx="200" cy="536" r="20" fill="#1d1717" stroke="#e8562a" stroke-width="1.8" opacity="0.7"/>
+        <text x="200" y="541" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="500" fill="#e8562a" text-anchor="middle" opacity="0.9">05</text>
+        <line x1="220" y1="536" x2="236" y2="558" stroke="#e8562a" stroke-width="1" opacity="0.25"/>
+        <rect x="240" y="514" width="160" height="44" rx="3" fill="#1c1108" stroke="rgba(232,86,42,0.5)" stroke-width="1"/>
+        <text x="252" y="531" font-family="Inter,system-ui,sans-serif" font-size="7.5" font-weight="500" fill="#e8562a" letter-spacing="1.6">OUTCOME</text>
+        <text x="252" y="547" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#c04820">Metrics · Iterate · Impact</text>
+        <rect x="0" y="0" width="620" height="620" fill="url(#fadeL)"/>
+        <rect x="0" y="0" width="620" height="620" fill="url(#fadeT)"/>
+      </svg>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="stat-cell"><div class="stat-num">47%</div><div class="stat-lbl">Checkout drop-off surfaced via server-side GA4 — directly redesigned the slot workflow</div></div>
-    <div class="stat-cell"><div class="stat-num">12×</div><div class="stat-lbl">Platform throughput scaled — 1,500 to 19,000 transactions/sec at Zebi Data</div></div>
-    <div class="stat-cell"><div class="stat-num">98.53</div><div class="stat-lbl">CAT percentile — top 1.5% nationally. Signals how I approach structured problems.</div></div>
-    <div class="stat-cell"><div class="stat-num">9%</div><div class="stat-lbl">Festive revenue from corporate gifting — a segment that didn't exist before I built it</div></div>
+    <div class="stat-cell"><div class="stat-num">17%</div><div class="stat-lbl">Checkout conversion uplift — reduced drop-off through funnel instrumentation and UX redesign</div></div>
+    <div class="stat-cell"><div class="stat-num">40%</div><div class="stat-lbl">Stockout reduction — demand-velocity modelling with capacity-aware delivery slot logic</div></div>
+    <div class="stat-cell"><div class="stat-num">32%</div><div class="stat-lbl">Partner adoption growth — rebuilt FoS workflows improving field team productivity 24%</div></div>
+    <div class="stat-cell"><div class="stat-num">6+</div><div class="stat-lbl">Client engagements as embedded PM at PwC — owning discovery, delivery, and UAT end-to-end</div></div>
   </div>
 </section>
 
@@ -426,19 +515,19 @@ footer p{font-size:0.75rem;color:var(--text-dim)}
 
 <div id="about">
 <div class="section">
-  <div class="section-eyebrow">About</div>
-  <h2 class="section-title" style="margin-bottom:2.5rem">Why I do this</h2>
+  <div class="section-eyebrow">About Me</div>
+  <h2 class="section-title" style="margin-bottom:2.5rem">Tell me about yourself.</h2>
   <div class="about-grid">
     <div class="about-mono">MK</div>
     <div class="about-text">
-      <p>I started as a software engineer building blockchain infrastructure at 19,000 transactions per second. Then I realised I cared more about <em>why</em> we were building than how — and I went back to get an MBA from MDI Gurgaon (CAT 98.53 percentile) specifically to make that switch with credibility.</p>
-      <p>At PwC, I've been the embedded PM for India's premium D2C grocery brands — not an advisor, an owner. When checkout conversion dropped, <em>I fixed it.</em> When nobody knew why 47% of users were dropping off, I built the server-side GA4 instrumentation that surfaced it. When a corporate gifting segment didn't exist, I built the workflows that made it 9% of festive revenue at 4.2× average order value.</p>
-      <p>What makes me different: I have a technical foundation that lets me talk to engineers without a translator, an analytics instinct that defaults to data before opinion, and enough structured problem-solving practice to stay calm when things are messy. Most PMs can write a PRD. Fewer can write the SQL to validate whether it worked.</p>
-      <p>Currently open to <em>Senior PM roles</em> in consumer tech, platform products, or AI-driven workflows. Based in Gurgaon, open to Bengaluru or remote.</p>
+      <p>I started my career as a software engineer — writing code for a blockchain platform processing government records at scale. I was good at it. But I kept finding myself more interested in the conversations happening in the room before the code got written. <em>Why are we building this? Who is it really for? What does success look like?</em> That restlessness pushed me toward an MBA at MDI Gurgaon, and from there into product management.</p>
+      <p>For the past two years, I've been the embedded PM at PwC India — working directly inside client product teams, not alongside them. At Le Marche, a premium D2C grocery brand, I owned the full product lifecycle: I instrumented the analytics stack from scratch using server-side GA4, which surfaced a <em>47% checkout drop-off</em> nobody knew existed. I redesigned the slot workflow, launched a category navigation system across 3,000+ SKUs, and built a corporate gifting feature that went from zero to <em>9% of festive season revenue</em> — at 4.2× the average order value. None of these were handed to me. Each started with me identifying the problem.</p>
+      <p>What makes me useful is the combination: I have enough engineering background to earn trust with developers, enough analytics fluency to argue from data instead of opinion, and enough product craft to know when to slow down and talk to users before writing a single requirement. I've shipped features that moved revenue, fixed funnels nobody had bothered to measure, and built workflows that made field teams 24% more productive. The common thread is <em>ownership</em> — I don't hand things off, I see them through.</p>
+      <p>I'm looking for a PM role where the problems are hard, the team cares about craft, and there's room to build something that actually matters. Based in Gurgaon, open to Bengaluru or remote.</p>
       <div class="about-highlights">
         <div class="ah-cell"><div class="ah-label">Current role</div><div class="ah-val">Senior Consultant (PM), PwC India</div></div>
         <div class="ah-cell"><div class="ah-label">Education</div><div class="ah-val">MBA MDI Gurgaon · B.Tech CS</div></div>
-        <div class="ah-cell"><div class="ah-label">Notable scores</div><div class="ah-val">CAT 98.53 · IIFT 98.15 percentile</div></div>
+        <div class="ah-cell"><div class="ah-label">Domain expertise</div><div class="ah-val">E-commerce · D2C · Fintech · AI/ML</div></div>
         <div class="ah-cell"><div class="ah-label">Certifications</div><div class="ah-val">SAFe POPM · CSM · Microsoft AI PM</div></div>
       </div>
       <div class="about-links">
@@ -469,9 +558,7 @@ footer p{font-size:0.75rem;color:var(--text-dim)}
 
    3. Fill in all the fields — each field is explained below
 
-   4. Upload the updated index.html to GitHub (git add .
-git commit -m "updated case study"
-git push)
+   4. Upload the updated index.html to GitHub
       Your new case appears automatically — same layout, same format
 
    FIELDS EXPLAINED:
