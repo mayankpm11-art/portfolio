@@ -458,7 +458,7 @@ footer p{font-size:0.75rem;color:var(--text-dim)}
       <span>+91-9121717703</span>
       <a href="mailto:mayank.pm11@gmail.com">mayank.pm11@gmail.com</a>
       <a href="https://www.linkedin.com/in/mayankkumarpm" target="_blank">linkedin.com/in/mayankkumarpm</a>
-      <a href="https://notion.so/mayank-portfolio" target="_blank">notion.so/mayank-portfolio</a>
+      <a href="https://mayankpm11-art.github.io/portfolio/" target="_blank">portfolio</a>
     </div>
     <div class="r-section-title">Summary</div>
     <div class="r-summary">Product Manager with 6+ years delivering e-commerce and platform products across checkout, catalogue, fulfilment, and AI-powered audit workflows. At PwC India, drove measurable outcomes across 6+ client engagements — including 17% conversion uplift, 40% stockout reduction, and 32% partner adoption growth — spanning D2C grocery and enterprise SaaS.</div>
@@ -650,6 +650,42 @@ const CASES = [
     learning: "The biggest friction wasn't price or delivery speed — it was the decision itself. Paradox of choice is real and measurable: 50% of ordering time, highest negative psych score. The solution that removes cognitive load, not just clicks, wins every time.",
     pdf: "cases/swiggy-case.pdf"
   }
+  {
+    tags: ["Rapido", "Consumer · Feature Addition"],
+    real: true,
+    title: "Improving Rapido — reducing user switching between ride-hailing apps",
+    problem: "Rapido users constantly switch between Ola, Uber, and Rapido to find the best price and ETA combination. The challenge: identify and ship 2-3 features that make users stick to Rapido.",
+    metrics: [
+      "6 features evaluated across Reach, Impact, Confidence, Effort",
+      "Pay Later scored 40,000 on RICE — highest priority feature",
+      "3 features selected for MVP: Pay Later, Rapido Regular, Share Live Location"
+    ],
+    problem_detail: "Rapido operates in a market dominated by Ola and Uber with 1.5 million captains and 15 million registered customers. User research revealed the core problem: riders treat all three apps as interchangeable, switching freely based on price and ETA. Rapido needed features that created stickiness — reasons to stay — rather than just competing on price.",
+    segments: [
+      "Rishabh, 26 — fresh MBA graduate in a tier-2 city, daily commuter who finds booking repetitive and struggles to direct drivers to new locations",
+      "Divya, 24 — IT professional who books rides for elderly grandparents who cannot use the app themselves",
+      "Ram Nikunj, 72 — Divya's grandfather, not tech-savvy, confused by online vs cash payment at ride end",
+      "Sunder Lal — Rapido captain new to the city, struggles to locate riders in unfamiliar localities",
+      "Harish — 4-year veteran captain who feels driver concerns are deprioritised vs rider complaints"
+    ],
+    painPoints: [
+      "Users switch apps for every booking — no reason to stay loyal to Rapido",
+      "No scheduled/recurring ride option for daily commuters — new booking required every day",
+      "Senior citizens and non-tech users cannot book independently — no 'book for others' feature",
+      "Payment friction: users in a hurry or with poor connectivity cannot delay payment beyond 2 minutes",
+      "Drivers cannot locate riders easily, especially in crowded or unfamiliar areas",
+      "No dedicated support for drivers — concerns deprioritised behind rider tickets"
+    ],
+    solution: "Three features selected for MVP. (1) Pay Later: users with rides under ₹100 can defer payment until before their next booking, with credit limit increasing on good repayment behaviour. (2) Rapido Regular: schedule recurring rides between fixed source-destination at fixed times, paid via Rapido Wallet, editable up to 15 minutes before pickup. (3) Share Live Location: riders share GPS location with captain during booking, reducing pickup turnaround time. Full wireframes built for all three features.",
+    prioritisation: "RICE scoring across 6 features. Pay Later: 40,000 (Reach 8000, Impact 5, Confidence 4, Effort 4) — highest score, targets payment friction affecting all users. Rapido Regular: 25,000 — high confidence, targets daily commuters. Share Live Location: 36,000 — low effort, immediate captain benefit. Book for Others, UI Simplification, and Dedicated Driver Support deprioritised for later sprints.",
+    outcomes: [
+      { num: "40,000", desc: "RICE score — Pay Later feature (top priority)" },
+      { num: "3", desc: "Features selected for MVP out of 6 evaluated" },
+      { num: "5", desc: "Success metrics defined: TAT, DAU/MAU, NPS, Downloads, Churn" }
+    ],
+    learning: "User switching in ride-hailing isn't a pricing problem — it's a habit problem. Features that remove daily friction (recurring rides, deferred payment) create stickiness more durably than discounts, because they change the default behaviour rather than just the economics of a single trip.",
+    pdf: "cases/Rapido-case.pdf"
+  },
   // ─────────────────────────────────────────────────────
   // ADD YOUR NEXT CASE HERE
   // Copy the block above (from { to }),
