@@ -580,6 +580,75 @@ footer p{font-size:0.75rem;color:var(--text-dim)}
 
 const CASES = [
   {
+    tags: ["TripAdvisor", "Consumer · Growth · UGC"],
+    real: true,
+    title: "Growing user-generated reviews on TripAdvisor India — from survey to shipped features",
+    problem: "TripAdvisor's ad-supported model depends on review volume for organic traffic. The problem: most users read reviews but don't write them. The challenge was to identify why, and design features that fix both sides — motivation and friction.",
+    metrics: [
+      "Survey + interviews across 4 traveller personas — Solo, Family, Business, Friends",
+      "75% of users cited time/boredom as the top deterrent for not reviewing",
+      "4 features designed: Kudos, Extreme Reviews Metric, Interactive Forms, Indirect Benefits"
+    ],
+    problem_detail: "TripAdvisor runs an ad-supported model where more reviews drive higher SEO rankings, more organic traffic, and more ad revenue. The objective was to grow the number of reviews on the platform, scoped to India. The approach: hypothesise why users don't review, validate through surveys and interviews, then design solutions that reinforce motivators and reduce friction — not just add prompts.",
+    segments: [
+      "Solo travellers (20–30 yrs) — most likely to review, high innate motivation but limited time",
+      "Family travellers (0–50 yrs) — moderate frequency, motivated when experience is extreme",
+      "Business travellers (30–60 yrs) — least likely to review, find process too time-consuming",
+      "Friends groups (variable age) — social motivation to share, but low platform habit"
+    ],
+    painPoints: [
+      "75% of survey respondents: the review process is too time-consuming and boring",
+      "50% of respondents: no tangible benefit or incentive for writing reviews",
+      "90% of interviewees: current form feels like a monologue — interest wanes with every question",
+      "100% of interviewees: nothing beyond altruism motivates them to write public reviews",
+      "Reviewers have no visibility into how helpful their contributions are to other travellers",
+      "No feedback loop — users who write reviews never know if it changed someone's decision"
+    ],
+    solution: "Four features designed across two objectives. To reinforce motivators: (1) Kudos — users give kudos to reviewers, visible on their profile, redeemable for travel benefits. (2) Extreme Reviews Metric — a new metric per listing showing % of 1-star and 5-star reviews, surfacing polarising experiences. To reduce friction: (3) Interactive Forms — one question at a time, adapts based on rating given, with property images to trigger nostalgia. (4) Indirect Benefits — tie review activity to travel vouchers and flight discounts through the existing levels system.",
+    prioritisation: "Features scored on Impact (1–5) vs Effort (1–5). Interactive Forms: Impact 5, Effort 4 — highest impact on the core friction problem. Indirect Benefits: Impact 5, Effort 4 — directly addresses the no-incentive deterrent. Kudos: Impact 4, Effort 3 — reinforces positive behaviour with low effort. Extreme Reviews Metric: Impact 4, Effort 3 — simple to implement, high value for listing owners and users. Gamification and degree-of-helpfulness deprioritised — low impact relative to effort.",
+    outcomes: [
+      { num: "4", desc: "Features designed across 2 objectives: reinforce motivators + reduce friction" },
+      { num: "75%", desc: "Users cited time/boredom as top deterrent — directly addressed by Interactive Forms" },
+      { num: "100%", desc: "Interviewees agreed no current incentive exists — addressed by Kudos + Indirect Benefits" }
+    ],
+    learning: "The review problem isn't a discovery problem — users know TripAdvisor exists. It's a motivation-friction problem. The insight that changed the design: most users feel reviewing is a monologue nobody reads. The moment you show them their contribution matters (Kudos, helpfulness visibility), and make the process feel like a conversation (Interactive Forms), the behaviour changes.",
+    pdf: "cases/TripAdvisor_case.pdf"
+  },
+  {
+    tags: ["Redcliffe Labs", "HealthTech · 0→1 · B2C"],
+    real: true,
+    title: "Designing a sample tracking control tower for Redcliffe Labs — end-to-end visibility for patients",
+    problem: "Redcliffe Labs processes 10,000+ orders a month with zero sample-wise tracking. After handing over a sample, patients enter a black box — no status updates, no ETA, no visibility until the report arrives. The challenge: design a control tower that tracks every sample from patient to lab.",
+    metrics: [
+      "5 features prioritised using Impact/Effort scoring — Process Overview scored highest at 2.00",
+      "7-step customer journey mapped with 5 trackable checkpoints defined",
+      "End-to-end mockups built: Home banner, Booking details, Overview, and Track My Test screens"
+    ],
+    problem_detail: "Redcliffe Labs is a diagnostics platform with a vision to be the most trusted and affordable diagnostics platform for India. Their key impact differentiator is 'Robust Interfaces — seamless customer journeys.' The problem: once a patient hands over their sample to the phlebotomist, they have no visibility into where it is, how it's being handled, or when results will be ready. This gap directly undermines the robust interfaces differentiator and erodes trust.",
+    segments: [
+      "User — the person who books the test on app/website, may or may not be the patient",
+      "Patient — the person whose sample is collected, primary beneficiary of the control tower",
+      "Pathology collector (Phlebotomist) — visits patient's address, collects and transports samples",
+      "Pathologist — conducts tests on received samples at the lab",
+      "Lab admin — updates sample activity in the Lab Information Management System (LIMS)"
+    ],
+    painPoints: [
+      "Current status of sample (High urgency, High frequency): complete black box post-handover — no live tracking, no ETA for results",
+      "Process knowledge (Medium-High urgency): patients have no information on how collection works, what samples are needed, or best practices to follow",
+      "Cancel/reschedule access (Low urgency): these options exist in booking flow but are hard to access once a test is booked",
+      "Knowledge about benchmarks (Low-Medium urgency): patients unaware if samples are being stored at correct temperatures during transit"
+    ],
+    solution: "Designed a Control Tower triggered automatically on every new booking. Features: (1) Booking Details — unique User ID and Test ID generated per booking, confirmation of patient details and collection slot. (2) Process Overview — test-specific summary of steps involved, number/type of samples, and best practices for patients. (3) Sample Tracker — live status feed reading timestamps from LIMS across 5 checkpoints: booking → sample collected → sample received by lab → tests performed → report generated. Mockups built for home banner, activity tab entry point, booking details screen, overview section, and track-my-test screen.",
+    prioritisation: "Features scored on Impact (1–10) vs Effort (1–10), ranked by Impact/Effort ratio. Process Overview: 8/4 = 2.00 (top priority — addresses process knowledge gap with low engineering effort). Booking Details: 9/6 = 1.50. Sample Tracker: 10/7 = 1.43 — highest impact but highest effort, built last. Collection Details and Sample Discarding deprioritised at 1.00 and 1.33 respectively.",
+    outcomes: [
+      { num: "5", desc: "Trackable checkpoints defined across the full sample-to-report journey" },
+      { num: "2.00", desc: "Highest Impact/Effort score — Process Overview feature, first to be built" },
+      { num: "10K+", desc: "Monthly orders that gain end-to-end tracking visibility post-implementation" }
+    ],
+    learning: "The hardest part of designing a tracking system isn't the UI — it's the data plumbing. The control tower only works if the LIMS is updated consistently by lab admins at every checkpoint. The product insight: the patient-facing feature is the easy part. The real product work was defining the data model, the checkpoint schema, and the admin workflows that feed it.",
+    pdf: "cases/RedcliffeLabs_case.pdf"
+  },
+  {
     tags: ["Ola Maps", "Platform · 0→1"],
     real: true,
     title: "Designing India's map search experience to challenge Google Maps",
@@ -613,7 +682,7 @@ const CASES = [
       { num: "3", desc: "Differentiated India-first features designed" }
     ],
     learning: "When entering a winner-takes-all market, the fastest path to awareness is riding distribution you already own. The Ola rides app was the trojan horse. 50M users who already trust Ola for navigation beat any marketing budget.",
-    pdf: "cases/ola-maps-case.pdf"
+    pdf: "cases/ola-case.pdf"
   },
   {
     tags: ["Swiggy", "Consumer · 0→1 Feature"],
@@ -715,7 +784,61 @@ const CASES = [
 
 const TEARDOWNS = [
   {
-    company: "Teardown #1 — Zepto (Quick Commerce)",
+  company: "Teardown #1 — Flipkart (E-Commerce Returns)",
+  title: "Why returning a product feels like filing a tax return",
+  summary: "Flipkart nailed the catalogue. The trust gap is in the return experience — and that's where repeat purchase is won or lost.",
+  works: [
+    "Easy to navigate once the return button is found — flow thereafter is clean and logical",
+    "T&C and return steps are clearly stated upfront, reducing mid-flow confusion",
+    "Gift card refund option reduces churn — smart retention play at the refund step",
+    "Reason list is comprehensive and adapts based on product category and order value"
+  ],
+  doesnt: [
+    "Return button is buried in the Account tab — completely non-intuitive for first-time returners",
+    "No 'reason not found' escape hatch — users with edge-case issues are stuck",
+    "Packaging damage question is ambiguous — 'opened to check' vs 'damaged' creates unnecessary anxiety",
+    "No option to refund to the original payment account — forces unwanted account choices"
+  ],
+  change: [
+    "Surface the return button directly on Order Detail page — one-tap access, no hunting required",
+    "Add 'Other / reason not found' as a fallback option at the bottom of the reason list",
+    "Clarify packaging condition ask: 'Original packaging intact, apart from opening to inspect'",
+    "Add 'Refund to account used for purchase' as the default refund option — kill the decision fatigue"
+  ],
+  verdict: "The return experience is where trust is earned or lost permanently. Flipkart's bones are strong — fix the discovery and the edge cases and NPS climbs.",
+  pdf: "teardowns/flipkart-return-teardown.pdf"
+},
+
+{
+  company: "Teardown #2 — Netflix (New User Onboarding)",
+  title: "How Netflix gets you hooked before you watch a single frame",
+  summary: "Netflix's onboarding is best-in-class at getting users to their first content hit. The next unlock is plan-selection confidence and social proof.",
+  works: [
+    "Short, device-agnostic onboarding — no 2FA friction, no mandatory app download required",
+    "Content preference picker ('Human, choose 3') is a clever, low-effort personalisation signal",
+    "Recommendation engine delivers almost immediately — the 'Done!' screen is genuinely satisfying",
+    "Hover-preview on titles reduces browse-to-play decision time significantly",
+    "Learning curve is essentially zero — no feature discovery needed to get value on day one"
+  ],
+  doesnt: [
+    "Plan pricing causes anxiety — feels expensive vs. competitors with no free trial to de-risk the commitment",
+    "Card-saving at payment step feels unsafe — insufficient trust signals explaining why it's stored",
+    "Content preference picker mixes TV shows and movies — one list trying to do two jobs",
+    "No social layer — can't share watchlists, co-watch, or see what friends are watching",
+    "'My List' is purely chronological — no folders, no genre grouping, no organisation at scale"
+  ],
+  change: [
+    "Reintroduce a 7-day trial or 'watch 3 episodes free' hook to de-risk the ₹649+ commitment",
+    "Add explicit payment trust copy: 'Card saved only for monthly renewal — cancel anytime in 2 taps'",
+    "Split content preference picker into two passes: Movies first, then TV Shows — better signal quality",
+    "Add a 'Browse by Region' filter — vast international library goes almost entirely undiscovered",
+    "Add social watchlist feature — 'Friends watching' row drives discovery and long-term stickiness"
+  ],
+  verdict: "Netflix converts brilliantly. The ceiling is social proof at plan selection and a social layer that makes the product stickier than the content alone.",
+  pdf: "teardowns/netflix-onboarding-teardown.pdf"
+},
+{
+    company: "Teardown #3 — Zepto (Quick Commerce)",
     title: "Why 10-minute delivery has a trust problem",
     summary: "Zepto nailed speed. The next moat is trust — and the post-order experience is where it's being lost.",
     works: [
@@ -737,7 +860,7 @@ const TEARDOWNS = [
     pdf: "teardowns/zepto-teardown.pdf"
   },
   {
-    company: "Teardown #2 — Notion (Productivity)",
+    company: "Teardown #4 — Notion (Productivity)",
     title: "The blank page problem no one has fixed",
     summary: "Notion is powerful. But its onboarding kills new user activation — limiting its TAM more than any missing feature.",
     works: [
@@ -759,7 +882,7 @@ const TEARDOWNS = [
     pdf: "teardowns/notion-teardown.pdf"
   },
   {
-    company: "Teardown #3 — LinkedIn Job Applications (B2C)",
+    company: "Teardown #5 — LinkedIn Job Applications (B2C)",
     title: "Great for everyone except the person applying",
     summary: "LinkedIn optimises for recruiter volume, not applicant quality. The job seeker experience is broken by design.",
     works: [
